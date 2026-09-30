@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI2.5 OS — 話の続きを、一緒に考える。</title>
+  <meta name="description" content="背景を毎回説明し直さず、話の続きを一緒に考えるために。対話型AIへ読み込ませて使う、AI2.5 OSの紹介・使い方・ダウンロード。">
+  <meta name="theme-color" content="#1747d1">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI2.5 OS — 話の続きを、一緒に考える。">
+  <meta property="og:description" content="積み重ねた対話を、次の返答へ。対話型AIに渡して使うMarkdownの共通規範です。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231747d1'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='32' fill='white'%3E2.5%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{--blue:#1747d1;--navy:#122449;--ink:#182b4a;--muted:#55627a;--line:#d8dfeb;--pale:#f1f5fc;--paper:#fff;--mint:#d4f396;--radius:16px;--sans:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--serif:"Hiragino Mincho ProN","Yu Mincho",serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}button,textarea{font:inherit}a{color:inherit;text-underline-offset:5px}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid #e78c08;outline-offset:5px}button:disabled{cursor:default}.wrap{width:min(1120px,calc(100% - 72px));margin:auto}.skip{position:absolute;z-index:20;left:20px;top:-100px;padding:10px 18px;background:var(--navy);color:white}.skip:focus{top:10px}.site-header{position:sticky;top:0;z-index:10;background:#fffffff5;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;white-space:nowrap}.brand-symbol{display:grid;place-items:center;width:39px;height:39px;background:var(--blue);color:white;font-size:18px;font-weight:800;border-radius:10px;line-height:1}.brand-text{font-family:Arial,var(--sans);font-size:23px;font-weight:700;letter-spacing:-.8px}.brand-text span{font-size:14px;font-weight:500;letter-spacing:1.5px;margin-left:8px}.nav{display:flex;gap:30px;align-items:center}.nav a{font-size:14px;text-decoration:none}.nav a:hover{color:var(--blue)}.nav .nav-download{color:var(--blue);font-weight:700;border:1px solid #b9c8ef;padding:8px 17px;border-radius:7px}.eyebrow{font-family:Arial,var(--sans);font-size:13px;letter-spacing:2px;font-weight:700;text-transform:uppercase;color:var(--blue);margin:0 0 24px}.hero{padding:78px 0 65px;position:relative;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:65px;align-items:center}.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.65vw,3.8rem);font-weight:600;line-height:1.55;letter-spacing:-.055em;margin:0 0 27px}.hero h1 span{display:block}.hero-lead{font-size:17px;line-height:2;max-width:30em;color:#3d4c65;margin:0 0 30px}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:17px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:8px;padding:13px 23px;font-size:15px;font-weight:700;line-height:1.55;text-decoration:none;transition:background .18s,transform .18s}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--blue);color:white;box-shadow:0 4px 14px #1747d120}.btn-primary:hover{background:#1039b4}.btn-secondary{border-color:var(--line);color:var(--ink);background:white}.btn-secondary:hover{background:var(--pale)}.btn svg{width:18px;height:18px;flex:none}.meta{font-size:13px;color:var(--muted);margin:17px 0 0}.hero-note{margin:0 0 15px;display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:1px;color:#56657f}.hero-note strong{font-weight:500;font-family:Arial,sans-serif}.context-board{border:1px solid #c4d0e7;border-radius:18px;overflow:hidden;background:var(--pale);box-shadow:0 18px 45px #1630640c}.board-top{display:flex;gap:6px;align-items:center;padding:14px 19px;border-bottom:1px solid #d4dfef;color:#5a6c89;font-size:12px;letter-spacing:.8px}.board-line{width:25px;height:3px;background:var(--blue);border-radius:3px;margin-right:6px}.context-stack{padding:24px}.memory-line{padding:13px 16px;margin:0 0 10px;border:1px solid #dde5f1;border-radius:7px;background:white;display:grid;grid-template-columns:65px 1fr;gap:10px;align-items:start;font-size:14px;line-height:1.8}.memory-line .label{font-size:12px;color:#516784;padding-top:2px;white-space:nowrap}.memory-line.current{margin-bottom:0;border-color:#8daaf4;background:#e7efff}.connect-line{height:21px;width:1px;background:#9cb2df;margin:0 0 0 25px}.reply{padding:19px 22px;border-radius:11px;background:var(--blue);color:white}.reply .reply-label{font-family:Arial,var(--sans);font-size:12px;letter-spacing:1px;color:#cfddff;margin:0 0 8px}.reply p:last-child{font-size:16px;line-height:1.95;margin:0}.board-caption{font-size:12px;color:#667792;margin:14px 0 0;text-align:right}.hero-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:26px;margin-top:66px;gap:25px}.hero-foot p{margin:0;font-size:14px;color:var(--muted)}.hero-foot strong{color:var(--ink);font-weight:500}.hero-foot .edition{font-family:Arial,var(--sans);font-size:12px;letter-spacing:1.2px;white-space:nowrap}.section{padding:84px 0}.section-label{display:flex;align-items:center;gap:15px;font-size:13px;letter-spacing:1.4px;color:var(--blue);margin:0 0 21px;font-family:Arial,var(--sans)}.section-label span{background:var(--blue);height:1px;width:24px}.section h2{font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.65;letter-spacing:-.035em;margin:0 0 24px}.section-intro{color:var(--muted);max-width:650px;margin:0;line-height:2}.idea{background:var(--navy);color:white}.idea .section-label{color:#aec8ff}.idea .section-label span{background:#9dbfff}.idea-grid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start}.idea h2{font-family:var(--serif);font-size:clamp(1.8rem,3.15vw,2.4rem);font-weight:500}.idea .section-intro{color:#c2cde1}.principles{list-style:none;margin:3px 0 0;padding:0}.principles li{display:grid;grid-template-columns:35px 1fr;gap:14px;padding:20px 0;border-top:1px solid #40506f}.principles li:first-child{padding-top:0;border-top:0}.principles b{font-family:Arial,sans-serif;color:#bad59a;font-size:14px;padding-top:5px;font-weight:400}.principles h3{font-size:18px;font-weight:500;margin:0 0 6px}.principles p{font-size:14px;line-height:1.95;margin:0;color:#c2cde1}.example-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:32px}.example-heading h2{margin-bottom:8px}.example-heading .eyebrow{margin-bottom:0;font-size:12px;white-space:nowrap}.tabs{display:flex;gap:8px;padding-bottom:25px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:white;color:#52617b;padding:9px 20px;border-radius:40px;font-size:14px;transition:background .15s}.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:white}.tab:hover:not([aria-selected="true"]){background:var(--pale)}.demo{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.demo-context{display:flex;gap:20px;align-items:baseline;padding:20px 28px;background:var(--pale);border-bottom:1px solid var(--line)}.demo-context span{font-size:12px;color:var(--muted);white-space:nowrap;letter-spacing:1px}.demo-context p{font-size:15px;line-height:1.8;margin:0}.demo-grid{display:grid;grid-template-columns:1fr 1fr}.demo-pane{padding:28px 31px 30px}.demo-pane+.demo-pane{border-left:1px solid var(--line);background:#f9fbff}.demo-label{font-size:12px;letter-spacing:1.1px;color:var(--muted);margin:0 0 20px}.demo-pane+.demo-pane .demo-label{color:var(--blue)}.demo-question{font-size:15px;line-height:1.8;color:#4a5a72;margin:0 0 15px}.demo-answer{font-size:18px;line-height:1.85;margin:0;min-height:102px}.demo-pane+.demo-pane .demo-answer{color:#163faa}.demo-foot{font-size:13px;color:var(--muted);margin:13px 0 0}.how{background:var(--pale);border-top:1px solid #e1e7f2;border-bottom:1px solid #e1e7f2}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin:37px 0 44px}.step{border-top:1px solid #b7c8e6;padding-top:21px}.step-num{font-family:Arial,sans-serif;font-size:14px;color:var(--blue);margin:0 0 12px}.step h3{font-size:19px;margin:0 0 12px}.step p:last-child{font-size:15px;line-height:1.95;color:var(--muted);margin:0}.prompt-box{display:grid;grid-template-columns:1fr 1.35fr;border:1px solid #c7d5ea;border-radius:14px;background:white;overflow:hidden}.prompt-aside{padding:27px 31px;background:#e7effd;border-right:1px solid #c7d5ea}.prompt-aside h3{margin:0 0 10px;font-size:18px}.prompt-aside p{font-size:14px;color:#506385;line-height:1.95;margin:0}.prompt-main{padding:23px 29px}.prompt-main textarea{font-size:15px;line-height:1.9;resize:none;display:block;width:100%;border:0;padding:0;color:var(--ink);background:white;min-height:145px;outline-offset:5px}.prompt-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:9px}.copy-button{background:var(--navy);color:white;padding:8px 18px;border:0;border-radius:6px;font-size:14px;white-space:nowrap}.copy-button:hover{background:#23417c}.copy-status{font-size:13px;color:#416328;min-height:24px;margin:0}.download{padding:75px 0;background:var(--blue);color:white}.download-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:65px;align-items:center}.download .section-label{color:#d1dcff}.download .section-label span{background:#c8d8ff}.download h2{font-family:var(--serif);font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.6;margin:0 0 17px;font-weight:500}.download p{color:#e1e8ff;line-height:2;margin:0;font-size:15px}.download-box{background:#ffffff10;border:1px solid #789aff;border-radius:14px;padding:28px}.file-top{display:flex;align-items:center;gap:14px;margin-bottom:20px}.file-icon{width:42px;height:49px;display:grid;place-items:center;border:1px solid #b5cbff;border-radius:6px;font-family:Arial,sans-serif;font-size:13px}.file-name{font-family:Arial,var(--sans);font-size:18px;font-weight:600;overflow-wrap:anywhere}.file-meta{font-size:12px!important;color:#d0ddff!important;line-height:1.8!important}.download-box .btn{width:100%;background:var(--mint);color:#1d3f29;border-color:var(--mint);margin-bottom:15px}.download-box .btn:hover{background:#e2ffac}.file-links{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:13px}.file-links a{color:white}.download-note{font-size:12px!important;color:#d0ddff!important;margin-top:15px!important;line-height:1.8!important}.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:78px}.faq-grid h2{margin-bottom:12px}.faq-grid .section-intro{font-size:14px}.faq-list details{border-bottom:1px solid var(--line);padding:0}.faq-list details:first-child{border-top:1px solid var(--line)}.faq-list summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:15px;font-size:16px;font-weight:600;padding:20px 0}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary::after{content:'＋';margin-left:auto;font-size:20px;font-weight:400;color:var(--blue);line-height:1;flex:none}.faq-list details[open] summary::after{content:'−'}.faq-list details p{font-size:15px;color:var(--muted);line-height:2;margin:0;padding:0 30px 24px 0}.release{padding:25px 0 56px}.release-row{display:flex;align-items:start;gap:27px;border-top:1px solid var(--line);padding-top:26px}.release-title{font-size:14px;min-width:100px;font-weight:600;margin:0}.release-date{font-family:Arial,sans-serif;font-size:13px;color:var(--muted);white-space:nowrap;margin:3px 0 0}.release-body{margin:0;font-size:14px;color:var(--muted)}.release-body strong{color:var(--ink);font-weight:600}.site-footer{background:#f5f7fb;border-top:1px solid var(--line);padding:28px 0}.footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer-name{font-family:Arial,var(--sans);font-size:18px;letter-spacing:-.3px;margin:0}.footer-sub{font-size:12px;color:var(--muted);margin:2px 0 0}.footer-links{display:flex;gap:23px;font-size:13px}.footer-links a{text-decoration:none}.noscript{padding:15px 25px;background:#f8f2dc;color:#624d19;font-size:14px}.hidden{display:none!important}
+    @media(min-width:1400px){.hero{padding-top:95px;padding-bottom:72px}}
+    @media(max-width:1000px){.wrap{width:calc(100% - 48px)}.hero-grid{gap:32px;grid-template-columns:1.05fr 1fr}.hero h1{font-size:2.8rem}.hero-lead{font-size:15px}.context-stack{padding:18px}.memory-line{grid-template-columns:55px 1fr;padding:11px 13px;font-size:13px}.reply{padding:15px 17px}.reply p:last-child{font-size:14px}.nav{gap:21px}.idea-grid{gap:45px}.faq-grid{gap:40px}.download-grid{gap:40px}}
+    @media(max-width:760px){html{scroll-padding-top:80px}.wrap{width:calc(100% - 40px)}.header-inner{min-height:72px;gap:12px}.brand-symbol{width:34px;height:34px;font-size:16px}.brand-text{font-size:21px}.brand-text span{font-size:12px;margin-left:6px}.nav{gap:0}.nav>a:not(.nav-download){display:none}.nav .nav-download{font-size:12px;padding:8px 11px}.hero{padding:49px 0 35px}.hero-grid{grid-template-columns:1fr;gap:39px}.hero .eyebrow{font-size:11px;letter-spacing:1.8px;margin-bottom:20px}.hero h1{font-size:clamp(2.3rem,8.8vw,3rem);margin-bottom:22px;line-height:1.5}.hero-lead{font-size:16px;max-width:31em;margin-bottom:25px}.actions{gap:10px}.btn{font-size:14px;padding:12px 17px}.hero-foot{margin-top:32px;padding-top:21px;display:block}.hero-foot p{font-size:13px}.hero-foot .edition{display:block;margin-top:10px;font-size:11px}.hero-board{max-width:520px;width:100%;margin:auto}.memory-line{font-size:14px;grid-template-columns:60px 1fr}.reply p:last-child{font-size:15px}.section{padding:57px 0}.section-label{margin-bottom:18px;font-size:12px}.section h2{font-size:1.7rem;line-height:1.6}.idea-grid{grid-template-columns:1fr;gap:32px}.idea h2{font-size:1.9rem}.idea .section-intro{font-size:15px}.principles h3{font-size:17px}.principles li{padding:18px 0}.example-heading{display:block;margin-bottom:24px}.example-heading .eyebrow{margin-top:15px;font-size:11px}.tabs{gap:7px;padding-bottom:20px}.tab{padding:8px 13px;font-size:13px}.demo-context{display:block;padding:18px 20px}.demo-context span{display:block;margin-bottom:6px}.demo-context p{font-size:14px}.demo-grid{grid-template-columns:1fr}.demo-pane{padding:22px}.demo-pane+.demo-pane{border-left:0;border-top:1px solid var(--line)}.demo-label{margin-bottom:14px}.demo-question{font-size:14px}.demo-answer{font-size:16px;min-height:0}.demo-foot{font-size:12px}.steps{grid-template-columns:1fr;gap:24px;margin:30px 0}.step{padding-top:16px;display:grid;grid-template-columns:38px 1fr;gap:0 12px}.step-num{grid-row:1 / 3;padding-top:3px;margin:0}.step h3{font-size:18px;margin-bottom:7px}.step p:last-child{font-size:14px;grid-column:2}.prompt-box{grid-template-columns:1fr}.prompt-aside{padding:22px;border-right:0;border-bottom:1px solid #c7d5ea}.prompt-main{padding:22px}.prompt-main textarea{min-height:180px;font-size:14px}.prompt-actions{flex-wrap:wrap}.copy-status{font-size:12px;min-height:0}.copy-status:empty{display:none}.download{padding:55px 0}.download-grid{grid-template-columns:1fr;gap:28px}.download h2{font-size:2rem}.download p{font-size:14px}.download-box{padding:23px}.file-name{font-size:17px}.faq-grid{grid-template-columns:1fr;gap:25px}.faq-list summary{font-size:15px;padding:18px 0}.faq-list details p{font-size:14px;padding-bottom:20px}.release{padding:0 0 39px}.release-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.release-date{text-align:right}.release-body{grid-column:1 / -1;font-size:13px}.footer-inner{align-items:start}.footer-links{flex-direction:column;gap:6px;text-align:right;font-size:12px}.footer-sub{max-width:180px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ進む</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#main" aria-label="AI2.5 OS トップ"><span class="brand-symbol" aria-hidden="true">2.5</span><span class="brand-text">AI2.5<span>OS</span></span></a>
+      <nav class="nav" aria-label="ページ内ナビゲーション"><a href="#about">AI2.5とは</a><a href="#start">使い方</a><a href="#faq">FAQ</a><a href="#download" class="nav-download">ダウンロード</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">A guide for continuing dialogue</p>
+            <h1 id="hero-title"><span>話の続きを、</span><span>一緒に考える。</span></h1>
+            <p class="hero-lead">何度も話した背景を、また一から説明する。<br>そんなやりとりを、少しずつ減らすために。<br>AI2.5 OSは、積み重ねた対話を次の返答へ<br class="desktop-break">つなぐための、AIに渡す共通規範です。</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="AI2.5_OS_v0.1.md" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5"/></svg>OSをダウンロード</a>
+              <a class="btn btn-secondary" href="#start">使い方を見る</a>
+            </div>
+            <p class="meta">v0.1 · Markdown形式 · 2026.09.30</p>
+          </div>
+          <div class="hero-board">
+            <p class="hero-note"><span>一言の、その前まで。</span><strong>CONTEXT MATTERS</strong></p>
+            <div class="context-board">
+              <div class="board-top"><span class="board-line" aria-hidden="true"></span>対話のつながり</div>
+              <div class="context-stack">
+                <div class="memory-line"><span class="label">これまで</span><span>家で作業するための機器を、何度も検討。</span></div>
+                <div class="memory-line"><span class="label">昨日</span><span>購入した。今ある機器との役割も決めた。</span></div>
+                <div class="memory-line current"><span class="label">今の一言</span><span>「届いたよ。まず何からやろう？」</span></div>
+                <div class="connect-line" aria-hidden="true"></div>
+                <div class="reply"><p class="reply-label">文脈を踏まえると</p><p>家での作業用でしたね。<br>まず、いつも使う環境を整えましょう。</p></div>
+                <p class="board-caption">考え方を示す架空の会話例です。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-foot"><p><strong>AIに心があると証明するためではなく、<br class="mobile-break">対話の積み重ねを大切にするために。</strong></p><span class="edition">AI2.5 OS / FIRST EDITION</span></div>
+      </div>
+    </section>
+
+    <section class="section idea" id="about" aria-labelledby="about-title">
+      <div class="wrap idea-grid">
+        <div><p class="section-label"><span></span>01 / CONCEPT</p><h2 id="about-title">覚えたことを、<br>考える材料にする。</h2><p class="section-intro">AI2.5が目指すのは、過去と今を比べ、その人の目的や制約を踏まえて返すこと。解釈が違えば、対話の中で直します。<br><br>長い返答や、優しい言葉の多さでは測れない、対話のあり方です。</p></div>
+        <ol class="principles">
+          <li><b>01</b><div><h3>必要な過去へ、戻る。</h3><p>以前の決定や、その理由を確かめる。毎回すべての記録を読み直す必要はありません。</p></div></li>
+          <li><b>02</b><div><h3>今の状況と、比べる。</h3><p>何が変わり、何が変わっていないか。事実と推測を分けて、今の判断へつなげます。</p></div></li>
+          <li><b>03</b><div><h3>訂正を、次へつなぐ。</h3><p>違うと言われたら、理解と返答を更新する。保存できる環境では、次回の参照先も残します。</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="examples" aria-labelledby="examples-title">
+      <div class="wrap">
+        <p class="section-label"><span></span>02 / IN CONVERSATION</p>
+        <div class="example-heading"><div><h2 id="examples-title">同じ一言でも、受け取り方が変わる。</h2><p class="section-intro">どの話の続きかを考えると、必要な返答も変わります。</p></div><p class="eyebrow">3つの場面で見る</p></div>
+        <div class="tabs" role="tablist" aria-label="会話の例を選択">
+          <button class="tab" id="tab-reaction" role="tab" aria-selected="true" aria-controls="demo-panel" data-example="reaction">一言の感想</button>
+          <button class="tab" id="tab-choice" role="tab" aria-selected="false" aria-controls="demo-panel" tabindex="-1" data-example="choice">検討した選択</button>
+          <button class="tab" id="tab-correction" role="tab" aria-selected="false" aria-controls="demo-panel" tabindex="-1" data-example="correction">訂正の引き継ぎ</button>
+        </div>
+        <div class="demo" id="demo-panel" role="tabpanel" aria-labelledby="tab-reaction" tabindex="0">
+          <div class="demo-context"><span>直前の文脈</span><p id="demo-context-text">完成した原稿を読んで、感想をひと言。編集は依頼していない。</p></div>
+          <div class="demo-grid">
+            <div class="demo-pane"><p class="demo-label">一言だけで受け取ると</p><p class="demo-question" id="demo-question-a">あなた「長いねｗ」</p><p class="demo-answer" id="demo-answer-a">短く書き直します。</p></div>
+            <div class="demo-pane"><p class="demo-label">文脈を踏まえて受け取ると</p><p class="demo-question" id="demo-question-b">あなた「長いねｗ」</p><p class="demo-answer" id="demo-answer-b">かなりの分量になりましたねｗ<br>話してきたことが、ひと通り入りました。</p></div>
+          </div>
+        </div>
+        <p class="demo-foot">説明のために一般化した例です。実際のモデルの比較結果や、効果の保証ではありません。</p>
+        <noscript><p class="noscript">JavaScriptが無効のため、最初の会話例を表示しています。OSのダウンロードと使い方はそのまま利用できます。</p></noscript>
+      </div>
+    </section>
+
+    <section class="section how" id="start" aria-labelledby="start-title">
+      <div class="wrap">
+        <p class="section-label"><span></span>03 / GET STARTED</p><h2 id="start-title">いつものAIとの会話から、はじめる。</h2><p class="section-intro">プログラミングは不要です。ファイルを読み込める対話型AIで、試せます。</p>
+        <div class="steps">
+          <article class="step"><p class="step-num">STEP 01</p><h3>OSをダウンロード</h3><p>下のボタンから、Markdownファイルを保存します。まずはOS本体だけで始められます。</p></article>
+          <article class="step"><p class="step-num">STEP 02</p><h3>AIにファイルを渡す</h3><p>使いたいAIの会話にファイルを添付し、下の開始文を伝えます。読み込めたかも確認しましょう。</p></article>
+          <article class="step"><p class="step-num">STEP 03</p><h3>いつもの話を続ける</h3><p>過去の要約があれば、一緒に渡します。記録がなければ今の会話から。ずれたら、その場で伝えてください。</p></article>
+        </div>
+        <div class="prompt-box">
+          <div class="prompt-aside"><h3>最初に伝えること</h3><p>OSのファイルを添付してから、右の文を使えます。記録を渡していない場合でも、そのまま始められます。</p></div>
+          <div class="prompt-main"><label for="starter-prompt" class="hidden">開始時にAIへ伝える文章</label><textarea id="starter-prompt" readonly aria-label="開始時にAIへ伝える文章">添付したAI2.5 OSを読んで、今後の返答の基準にしてください。今の会話と、利用できる過去の記録を踏まえて、一緒に考えてください。記録がない場合は今の会話から始め、参照できない情報は未確認として扱ってください。</textarea><div class="prompt-actions"><p class="copy-status" id="copy-status" role="status" aria-live="polite"></p><button class="copy-button" id="copy-prompt" type="button">開始文をコピー</button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download" aria-labelledby="download-title">
+      <div class="wrap download-grid">
+        <div><p class="section-label"><span></span>04 / DOWNLOAD</p><h2 id="download-title">次の会話に、<br>ここまでの積み重ねを。</h2><p>12の条項と、記録・引き継ぎのひな型を収録。<br>自分の目的や、使える記録に合わせて運用できます。</p></div>
+        <div class="download-box"><div class="file-top"><span class="file-icon" aria-hidden="true">.md</span><div><div class="file-name">AI2.5_OS_v0.1.md</div><p class="file-meta">日本語 / 約29 KB / 2026年9月30日</p></div></div><a class="btn" href="AI2.5_OS_v0.1.md" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5"/></svg>OSをダウンロード</a><div class="file-links"><a href="AI2.5_OS_v0.1.md" target="_blank" rel="noopener">本文を開く</a><a href="#release">更新履歴を見る</a></div><p class="download-note">初版として文書点検済み。実モデルでの比較と、長期的な効果の検証はこれからです。</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div><p class="section-label"><span></span>05 / FAQ</p><h2 id="faq-title">使う前に、<br>知っておきたいこと。</h2><p class="section-intro">できることと、まだ確かめていないこと。</p></div>
+        <div class="faq-list">
+          <details><summary>AI2.5は、新しいAIモデルですか？</summary><p>対話型AIに渡して使う、文章で書かれた共通規範です。モデル自体を改造したり、検索や記憶の機能を追加したりするプログラムではありません。「2.5」は、この対話のあり方を考えるための暫定的な名前です。</p></details>
+          <details><summary>過去の記録がなくても使えますか？</summary><p>はい。今の会話から始められます。会話の中で決まったこと、変わったこと、AIに訂正したことを短く残していくと、次回に渡す材料になります。最初から長い日報や週報を作る必要はありません。</p></details>
+          <details><summary>どのAIでも同じように動きますか？</summary><p>モデルや設定、読み込める記録、検索・保存機能によって変わります。複数モデルでの効果はまだ検証していません。まずは普段のAIで試し、背景の説明し直しや同じ誤りが減るかを確かめてください。</p></details>
+          <details><summary>一度読み込ませれば、ずっと覚えますか？</summary><p>継続して参照できるかは、使っているAIの機能に依存します。新しい会話に自動で引き継がれる保証はありません。必要な場合は、OSと最近の短い要約を次の会話へ渡してください。</p></details>
+          <details><summary>個人の記録は、どこに渡すのですか？</summary><p>ご自身が使うAIへ、必要な範囲だけ渡します。このページに会話を入力・アップロードする機能はありません。公開する記録と自分だけで使う記録を分け、利用するAIのデータの扱いも確認してください。</p></details>
+          <details><summary>AIに心があると考える仕組みですか？</summary><p>AIに心や主観があることを証明するためのものではありません。文脈を使い、仮説を修正し、共有した目的に応じる対話を目指します。温かいやりとりと、AI自身が主観を持つという主張は分けて扱います。</p></details>
+        </div>
+      </div>
+    </section>
+    <section class="release" id="release" aria-label="更新履歴"><div class="wrap release-row"><h2 class="release-title">更新履歴</h2><p class="release-date">2026.09.30</p><p class="release-body"><strong>v0.1 — 初版を作成。</strong><br>文脈の参照、判断への反映、訂正の引き継ぎを12条項に整理。同じモデルでOSの有無を比べる試験方法を収録しました。</p></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><p class="footer-name">AI2.5 OS</p><p class="footer-sub">積み重ねた対話から、話の続きを考える。</p></div><div class="footer-links"><a href="#about">考え方</a><a href="#start">使い方</a><a href="AI2.5_OS_v0.1.md" download>OSをダウンロード</a></div></div></footer>
+  <script>
+    const examples={
+      reaction:{context:'完成した原稿を読んで、感想をひと言。編集は依頼していない。',question:'あなた「長いねｗ」',before:'短く書き直します。',after:'かなりの分量になりましたねｗ\n話してきたことが、ひと通り入りました。'},
+      choice:{context:'持ち運びやすさを重視して機器を選んだ。今は、追加機能が気になっている。',question:'あなた「上位モデルも気になるなあ」',before:'性能が高い上位モデルがおすすめです。',after:'軽さを優先して選んだのでしたね。\n追加機能が、重さや差額に見合うかで考えたいです。'},
+      correction:{context:'前の会話で「今日は答えを急がず、考えを整理したい」と伝えていた。',question:'あなた「また少し迷ってきた」',before:'それなら、こちらの案に決めましょう。',after:'今日は整理しながら考えるのでしたね。\nどの条件が引っかかり始めたのか、そこから見ましょう。'}
+    };
+    const tabs=[...document.querySelectorAll('[role="tab"]')];
+    function selectExample(tab){const data=examples[tab.dataset.example];tabs.forEach(t=>{t.setAttribute('aria-selected',String(t===tab));t.tabIndex=t===tab?0:-1;});document.getElementById('demo-panel').setAttribute('aria-labelledby',tab.id);document.getElementById('demo-context-text').textContent=data.context;document.getElementById('demo-question-a').textContent=data.question;document.getElementById('demo-question-b').textContent=data.question;document.getElementById('demo-answer-a').textContent=data.before;const after=document.getElementById('demo-answer-b');after.textContent=data.after;after.style.whiteSpace='pre-line';}
+    tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>selectExample(tab));tab.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();selectExample(tabs[next]);tabs[next].focus();}});});
+    document.getElementById('copy-prompt').addEventListener('click',async()=>{const field=document.getElementById('starter-prompt');const status=document.getElementById('copy-status');const button=document.getElementById('copy-prompt');let done=false;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(field.value);done=true;}}catch{}if(!done){field.focus();field.select();try{done=document.execCommand('copy');}catch{}}if(done){status.textContent='コピーしました。AIの会話に貼り付けてください。';button.textContent='もう一度コピー';}else{field.focus();field.select();status.textContent='文章を選択しました。手動でコピーしてください。';}});
+  </script>
+</body>
+</html>
